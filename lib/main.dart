@@ -5,7 +5,98 @@ import 'dart:io';
 import 'dart:ui';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp1());
+}
+
+class MyApp1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'FOIS App',
+      home: LoginPage(),
+    );
+  }
+}
+
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 18.0),
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 120,
+                ),
+                Image.asset('assets/CRIS.jpg'),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  'Login',
+                  style: TextStyle(fontSize: 25),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 60.0,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: "Employee ID",
+                labelStyle: TextStyle(fontSize: 20),
+                filled: true,
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Password",
+                labelStyle: TextStyle(fontSize: 20),
+                filled: true,
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Column(
+              children: <Widget>[
+                ButtonTheme(
+                  height: 50,
+                  disabledColor: Colors.blueAccent,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _navigateToNextScreen(context);
+                    },
+                    child: Text(
+                      'Login',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+void _navigateToNextScreen(BuildContext context) {
+  Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => const MyHomePage()));
 }
 
 class MyApp extends StatelessWidget {
