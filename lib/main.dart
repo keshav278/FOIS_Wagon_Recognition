@@ -102,7 +102,6 @@ void _navigateToNextScreen(BuildContext context) {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -134,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Text Recognition example"),
+        title: const Text("Wagon Number recognition"),
       ),
       body: Center(
           child: SingleChildScrollView(
